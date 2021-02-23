@@ -1,0 +1,41 @@
+#spring:
+#  application:
+#    name: microservicecloud-config-client
+
+
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 7001
+
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-eureka-client
+
+eureka:
+  client:
+    service-url: http://eureka7001.com:7001/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: eureka7001.com #冒号后面必须要有空格
+---
+server:
+  port: 7001
+
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-eureka-client
+
+eureka:
+  client:
+    service-url: http://eureka7001.com:7001/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: eureka7001.com #冒号后面必须要有空格
